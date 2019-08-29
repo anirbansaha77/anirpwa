@@ -1,0 +1,53 @@
+{
+    "name": "JavaScript",
+    "toc": [{
+        "id": "1-JS",
+        "serial": "1",
+        "Title": "Private property in JS Class"
+    },{
+        "id": "2-JS",
+        "serial": "2",
+        "Title": "Closure"
+    },{
+        "id": "3-JS",
+        "serial": "3",
+        "Title": "Lifecycle"
+    }],
+    "content":  {
+        "1-JS": {
+        "content": [{
+                "serial": 1,
+                "type": "TEXT",
+                "value": "This pattern of public, private, and privileged members is possible because JavaScript has closures. What this means is that an inner function always has access to the vars and parameters of its outer function, even after the outer function has returned. This is an extremely powerful property of the language."
+            },{
+                "serial": 1,
+                "type": "TEXT",
+                "value": "This pattern of public, private, and privileged members is possible because JavaScript has closures. What this means is that an inner function always has access to the vars and parameters of its outer function, even after the outer function has returned. This is an extremely powerful property of the language."
+            }]
+        },
+        "2-JS": {
+        "content": [
+            {
+                "serial": 1,
+                "type": "TEXT",
+                "value": "This pattern of public, private, and privileged members is possible because JavaScript has closures. What this means is that an inner function always has access to the vars and parameters of its outer function, even after the outer function has returned. This is an extremely powerful property of the language."
+            },{
+                "serial": 1,
+                "type": "CODE",
+                "value": "function() {console.log('hi')}"
+            }]
+        },
+        "3-JS": {
+            "content": [
+                {
+                    "serial": 1,
+                    "type": "TEXT",
+                    "value": "This pattern of public, private, and privileged members is possible because JavaScript has closures. What this means is that an inner function always has access to the vars and parameters of its outer function, even after the outer function has returned. This is an extremely powerful property of the language."
+                },{
+                    "serial": 1,
+                    "type": "CODE",
+                    "value": "function() {console.log('hi')}"
+                }]
+            }
+    }
+}

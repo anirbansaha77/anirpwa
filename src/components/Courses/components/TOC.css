@@ -1,0 +1,26 @@
+.TOCContainer {
+    width: 80vw;
+    text-align: left;
+    margin: 10px auto;
+}
+
+.TOCTitle {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.TOCLine {
+    font-weight: bold;
+    padding: 5px 0px;
+}
+
+.Question {
+    padding: 20px 5px;
+    background-color: lightblue;
+    font-weight: bold;
+}
+
+.Answer {
+    padding: 10px 5px;
+    text-align: justify;
+}
