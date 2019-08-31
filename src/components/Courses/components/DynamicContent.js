@@ -30,6 +30,17 @@ class DynamicContent extends React.Component {
             </div>
         )
     }
+    renderVideo(value) {
+        return(
+            <div>
+                <Suspense fallback={<div>Loading Video Block...</div>}>
+                    <div>
+                        <iframe src="value" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
+                    </div>
+                </Suspense>
+            </div>
+        )
+    }
     render() {
         const { Content } = this.props;
         return(
@@ -44,6 +55,12 @@ class DynamicContent extends React.Component {
                     Content && Content.type === Enums.ContentTypes.CODE &&
                     <div className="Answer">
                         { this.renderCode(Content.value) }
+                    </div>
+                }
+                {
+                    Content && Content.type === Enums.ContentTypes.VIDEO &&
+                    <div className="Answer">
+                        { this.renderVideo(Content.value) }
                     </div>
                 }
             </div>
