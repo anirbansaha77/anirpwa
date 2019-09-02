@@ -9,7 +9,7 @@ class TOC extends React.Component {
         let toc = (this.props.data && this.props.data.toc) || [];
         return ( 
             <div className="TOCContainer">
-                <div className="TOCTitle">Table of Contents</div>
+                <div id="top" className="TOCTitle">Table of Contents</div>
                 <br/ >
                 {
                     toc && toc.map(item => ( 

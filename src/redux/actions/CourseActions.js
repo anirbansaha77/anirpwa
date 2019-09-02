@@ -1,6 +1,5 @@
 
 import { fetchStaticData }  from '../../Utility/fetchStaticData';
-import Enums from '../../Data/CourseUtility/CourseEnum';
 import urls from '../../Data/CourseUtility/CourseURLs'
 
 export function getCourseData(course) {
@@ -8,7 +7,7 @@ export function getCourseData(course) {
         let url = getCourseUrl(course);
         fetchStaticData(url).then(res => {
             let payload = {};
-            payload[course] = res;
+            payload[course.value] = res;
             dispatch({ type: 'UPDATE_COURSE', payload });
         })
     })
@@ -16,5 +15,5 @@ export function getCourseData(course) {
 }
 
 function getCourseUrl(course) {
-    return urls[course];
+    return urls[course.value];
 }

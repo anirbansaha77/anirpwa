@@ -1,7 +1,7 @@
 import React from 'react';
-//import logo from './logo.svg';
 import '../../App.css';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { Courses } from '../../Data/CourseUtility/CourseEnum';
 function Header() {
   return (
       <div>
@@ -14,19 +14,25 @@ function Header() {
           </span>
           <section>
             <div className="MenuConatiner">
-              {/* <div className="MenuItem">
-                <Link to="/about">About</Link>
-              </div> */}
-              <div className={`MenuItem ${window.location.pathname === '/' ? 'Active' : 'inActive'}`}>
-                <Link className="MenuLink" to="/">Home</Link>
-              </div>
-              <div className={`MenuItem ${window.location.pathname.toLocaleLowerCase() === '/javascript' ? 'Active' : 'inActive'}`}>
-                <Link  className="MenuLink" to="/JavaScript">JavaScript</Link>
-              </div>
-              <div className={`MenuItem ${window.location.pathname.toLocaleLowerCase() === '/reactquestions' ? 'Active' : 'inActive'}`}>
-                <Link className="MenuLink" to="/ReactQuestions">React</Link>
-              </div>
-              
+              <NavLink className={'MenuItem MenuLink'} exact activeClassName={"MenuItem MenuLink Active"} to="/">
+                Home
+              </NavLink>
+              {
+                Object.keys(Courses).map(course => {
+                  return(
+                    <NavLink className={'MenuItem MenuLink'} activeClassName={"MenuItem MenuLink Active"} to={Courses[course].route}>
+                      {Courses[course].value}
+                    </NavLink>
+                  )
+                })
+              }
+                
+                {/* <NavLink className={'MenuItem MenuLink'} activeClassName={"MenuItem MenuLink Active"} to="/JavaScript">
+                  JavaScript
+                </NavLink>
+                <NavLink className={'MenuItem MenuLink'} activeClassName={"MenuItem MenuLink Active"} to="/ReactQuestions">
+                  React
+                </NavLink> */}
             </div>
           </section>
         </div>

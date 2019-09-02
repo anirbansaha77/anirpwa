@@ -1,0 +1,117 @@
+{
+    "name": "JavaScript",
+    "toc": [{
+        "id": "1-ES6",
+        "serial": "1",
+        "Title": "What are some of the features of ES6?"
+    },{
+        "id": "2-ES6",
+        "serial": "2",
+        "Title": "What is let and const? And how it differs from var?"
+    },{
+        "id": "3-ES6",
+        "serial": "3",
+        "Title": "What is Arrow function? What are all its uses? How it differs from normal function?"
+    },{
+        "id": "4-ES6",
+        "serial": "4",
+        "Title": "What is Set?"
+    },{
+        "id": "5-ES6",
+        "serial": "5",
+        "Title": "What is class statement and class expression?"
+    }
+],
+    "content":  {
+        "5-ES6":{
+            "content": [{
+                "serial": 1,
+                "title":"Class declaration",
+                "type": "TEXT",
+                "value": "One way to define a class is using a class declaration. To declare a class, you use the class keyword with the name of the class (\"Rectangle\" here)."
+            },{
+                "serial": 2,
+                "type": "CODE",
+                "value": "class Rectangle{constructor(t,h){this.height=t,this.width=h}}"
+            },{
+                "serial": 1,
+                "title":"Class Expression",
+                "type": "TEXT",
+                "value": "The Class expression is one way to define a class in ES6. Similar to function expressions, class expressions can be named or unnamed. If named, the name of the class is local to the class body only. JavaScript classes use prototype-based inheritance."
+            },{
+                "serial": 2,
+                "type": "CODE",
+                "value": "var Rectangle= class{constructor(t,h){this.height=t,this.width=h}}"
+            }
+        ]
+        },
+        "4-ES6":{
+            "content": [{
+                "serial": 1,
+                "type": "TEXT",
+                "value": "Set objects are collections of unique values. Duplicate values are ignored, as the collection must have all unique values. The values can be primitive types or object references. Also, NaN and undefined can also be stored in a Set. NaN is considered the same as NaN (even though NaN !== NaN)"
+            },{
+                "serial": 2,
+                "type": "CODE",
+                "value": "var mySet = new Set();mySet.add(1);/* [1] */mySet.add(2);/* [1, 2] */mySet.add(2);/* [1, 2] this add is ignored*/"
+            },{
+                "serial": 1,
+                "type": "LIST",
+                "title": "with class expression",
+                "value": "<ul><li>you are able to omit the class name </li><li>class expressions allow you to redefine/re-declare classes and don’t throw any type errors like class declaration</li><ul>"
+            }
+        ]
+        },
+        "1-ES6": {
+        "content": [{
+                "serial": 1,
+                "type": "LIST",
+                "value": "<ul><li>Support for constants - const - (also known as immutable variables)</li><li>Block-Scope support for both variables, constants, functions</li><li>Arrow functions</li><li>Extended Parameter Handling</li><li>Template Literals and Extended Literals</li><li>Enhanced Regular Expression</li><li>Destructuring Assignment</li><li>Modules, Classes, Iterators, Generators</li><li>Enhanced Object Properties</li><li>Support for Map/Set & WeakMap/WeakSet</li><li>Promises, Meta-Programming ,Internationalization and Localization</li><ul>"
+            }]
+        },
+        "2-ES6": {
+        "content": [
+            {
+                "serial": 1,
+                "type": "LIST",
+                "value": "<ul><li>var -- is function scoped, hoisted</li><li>let and const uses block scoping - variable declared using these keywords only exist within the innermost block that surronds them</li><ul>"
+            }, {
+                "serial": 1,
+                "title": "let/const",
+                "type": "TEXT",
+                "value": "'let' --- is mutable. 'const' --- is immutable"
+            },{
+                "serial": 2,
+                "type": "CODE",
+                "value": "let a = 5; { let a=3; console.log(\"inner a\", a);/* inner a = 3 */} console.log(\"outer a\", a);// outer a = 5"
+            },{
+                "serial": 3,
+                "type": "CODE",
+                "value": "if(true){let i=0; console.log(i)/*Prints 0*/} console.log(i) \n//throws reference error : i is not defined"
+            }
+        ]
+        },
+        "3-ES6": {
+            "content": [
+                {
+                    "serial": 1,
+                    "type": "TEXT",
+                    "value": "Arrow functions are a short-hand notation for writing functions."
+                },{
+                    "serial": 1,
+                    "type": "TEXT",
+                    "title":"cannot be used as constructors",
+                    "value": "you can’t use new with an arrow function. Hence arrow functions do not have a protoype property on them."
+                },{
+                    "serial": 1,
+                    "type": "CODE",
+                    "value": "/*old function declaration*/\nfunction add(a, b){return a+b;}\n/*Implementation of arrow*/const add = (a,b) => a+b"
+                },{
+                    "serial": 1,
+                    "title": "behaviour of --this-- keyword",
+                    "type": "CODE",
+                    "value": "function timer() {this.seconds=0;setInterval(()=>{setTimeout(()=>{this.seconds++;\n/*this property refers to the timer object*/},1000),1000)"
+                }]
+            }
+    }
+}

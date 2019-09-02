@@ -18,9 +18,18 @@
     padding: 20px 5px;
     background-color: lightblue;
     font-weight: bold;
+    display: flex;
 }
 
 .Answer {
     padding: 10px 5px;
     text-align: justify;
+}
+
+.contentTitle {
+    width: 100%;
+    border-bottom: 1px solid powderblue;
+    margin: 10px 0;
+    font-weight: bold;
+    color: indigo;
 }

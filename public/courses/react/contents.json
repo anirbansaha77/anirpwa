@@ -1,36 +1,138 @@
 {
     "name": "React",
     "toc": [{
-        "id": "1-JS",
+        "id": "1-RJS",
         "serial": "1",
-        "Title": "Private property in JS Class"
+        "Title": "How to bind methods or event handlers in JSX callbacks"
     },{
-        "id": "2-JS",
+        "id": "2-RJS",
         "serial": "2",
-        "Title": "Closure"
+        "Title": "What is Virtual DOM?"
+    },{
+        "id": "3-RJS",
+        "serial": "3",
+        "Title": "What are controlled components?"
+    },{
+        "id": "4-RJS",
+        "serial": "4",
+        "Title": "What are uncontrolled components?"
+    },{
+        "id": "5-RJS",
+        "serial": "5",
+        "Title": "What are the different phases of component lifecycle?"
+    },{
+        "id": "6-RJS",
+        "serial": "5",
+        "Title": "What are Higher-Order Components?"
+    },{
+        "id": "7-RJS",
+        "serial": "5",
+        "Title": "What is the purpose of using super constructor with props argument?"
     }],
     "content":  {
-        "1-JS": {
+        "7-RJS": {
+            "content": [{
+                    "serial": 1,
+                    "type": "RICH",
+                    "value": "<p>A child class constructor cannot make use of&nbsp;<code>this</code>&nbsp;reference until&nbsp;<code>super()</code>&nbsp;method has been called. The same applies for ES6 sub-classes as well. The main reason of passing props parameter to&nbsp;<code>super()</code>&nbsp;call is to access&nbsp;<code>this.props</code>&nbsp;in your child constructors.</p>"
+                },{
+                    "serial": 1,
+                    "type": "CODE",
+                    "title":"Passing props:",
+                    "value": "class MyComponent extends React.Component{constructor(props){super(props),console.log(this.props)}}\n//prints { name: 'John', age: 42 }"
+                },{
+                    "serial": 1,
+                    "type": "CODE",
+                    "title":"Not passing props:",
+                    "value": "class MyComponent extends React.Component{constructor(props){super();console.log(this.props);\n/*prints undefined*/\nconsole.log(props)\n/*but props parameter is still available \nprints { name: 'John', age: 42 }*/}render(){/*// no difference outside constructor*/console.log(this.props)\n/*prints { name: 'John', age: 42 }*/}}"
+                }
+            ]
+        },
+        "6-RJS": {
+            "content": [{
+                    "serial": 1,
+                    "type": "RICH",
+                    "value": "<p>A&nbsp;<em>higher-order component</em>&nbsp;(<em>HOC</em>) is a function that takes a component and returns a new component. Basically, it's a pattern that is derived from React's compositional nature.</p><p>We call them&nbsp;<strong>pure components</strong>&nbsp;because they can accept any dynamically provided child component but they won't modify or copy any behavior from their input components.</p>"
+                },{
+                    "serial": 1,
+                    "type": "CODE",
+                    "value": "const EnhancedComponent = higherOrderComponent(WrappedComponent) \n// example react-redux connect function"
+                },{
+                    "serial": 1,
+                    "type": "RICH",
+                    "value": "<p>HOC can be used for many use cases:</p><ol><li>Code reuse, logic and bootstrap abstraction.</li><li>Render hijacking.</li><li>State abstraction and manipulation.</li><li>Props manipulation.</li></ol>"
+                }
+            ]
+        },
+        "5-RJS": {
+            "content": [{
+                    "serial": 1,
+                    "type": "TEXT",
+                    "title": "Mounting:",
+                    "value": "The component is ready to mount in the browser DOM.\nThis phase covers initialization from constructor(), getDerivedStateFromProps(),\nrender(), and componentDidMount() lifecycle methods."
+                },{
+                    "serial": 1,
+                    "type": "TEXT",
+                    "title": "Updating:",
+                    "value": "In this phase, the component get updated in two ways,\nsending the new props and updating the state either from setState() or forceUpdate().\nThis phase covers getDerivedStateFromProps(), shouldComponentUpdate(), render(),\ngetSnapshotBeforeUpdate() and componentDidUpdate() lifecycle methods."
+                },{
+                    "serial": 1,
+                    "type": "TEXT",
+                    "title": "Unmounting:",
+                    "value": "In this last phase, the component is not\nneeded and get unmounted from the browser DOM. This phase includes componentWillUnmount()\nlifecycle method."
+                },{
+                    "serial": 1,
+                    "type": "IMAGE",
+                    "value": "/courses/react/images/react_lifecycle.png"
+                }
+            ]
+        },
+        "4-RJS": {
+            "content": [{
+                    "serial": 1,
+                    "type": "TEXT",
+                    "value": "The Uncontrolled Components are the ones that store their own state internally, and you query the DOM using a ref to find its current value when you need it. This is a bit more like traditional HTML."
+                }]
+            },
+        "3-RJS": {
+            "content": [{
+                    "serial": 1,
+                    "type": "TEXT",
+                    "value": "A component that controls the input elements within the forms on subsequent user input is called Controlled Component, i.e, every state mutation will have an associated handler function."
+                },{
+                    "serial": 1,
+                    "type": "CODE",
+                    "value": "handleChange(event) {this.setState({value: event.target.value.toUpperCase()})}"
+                }]
+            },
+        "1-RJS": {
         "content": [{
                 "serial": 1,
                 "type": "TEXT",
-                "value": "This pattern of public, private, and privileged members is possible because JavaScript has closures. What this means is that an inner function always has access to the vars and parameters of its outer function, even after the outer function has returned. This is an extremely powerful property of the language."
+                "title": "Binding in Constructor",
+                "value": "In JavaScript classes, the methods are not bound by default. The same thing applies for React event handlers defined as class methods. Normally we bind them in constructor."
             },{
                 "serial": 1,
-                "type": "TEXT",
-                "value": "This pattern of public, private, and privileged members is possible because JavaScript has closures. What this means is that an inner function always has access to the vars and parameters of its outer function, even after the outer function has returned. This is an extremely powerful property of the language."
+                "type": "CODE",
+                "value": "class Component extends React.Componenet{constructor(e){super(e),this.handleClick=this.handleClick.bind(this)}handleClick(){}}"
+            },{
+                "serial": 1,
+                "type": "CODE",
+                "title": "Public class fields syntax",
+                "value": "handleClick=(()=>{console.log(\"this is:\",this)});"
+            },{
+                "serial": 1,
+                "type": "CODE",
+                "title": "Arrow functions in callbacks: You can use arrow functions directly in the callbacks.",
+                "value": "<button onClick={(event) => this.handleClick(event)}> \n {'Click me'} \n </button>"
             }]
         },
-        "2-JS": {
+        "2-RJS": {
         "content": [
             {
                 "serial": 1,
                 "type": "TEXT",
-                "value": "This pattern of public, private, and privileged members is possible because JavaScript has closures. What this means is that an inner function always has access to the vars and parameters of its outer function, even after the outer function has returned. This is an extremely powerful property of the language."
-            },{
-                "serial": 1,
-                "type": "CODE",
-                "value": "function() {console.log('hi')}"
+                "value": "The Virtual DOM (VDOM) is an in-memory representation of Real DOM. The representation of a UI is kept in memory and synced with the \"real\" DOM. It's a step that happens between the render function being called and the displaying of elements on the screen. This entire process is called reconciliation."
             }]
         }
     }

@@ -6,23 +6,22 @@ import '../Courses.css';
 import { Courses } from '../../../Data/CourseUtility/CourseEnum';
 const LoadContent = React.lazy(() => import ('../components/LoadContent'));
 
-class JavaScript extends React.Component {
+class ES6Questions extends React.Component {
   componentDidMount() {
-    if(!this.props.Courses[Courses.JavaScript.value]){
-      console.log("notfound call api")
-      this.props.actions.getCourseData(Courses.JavaScript);
+    if(!this.props.Courses[Courses.ES6]){
+      this.props.actions.getCourseData(Courses.ES6);
     } else {
-      console.log("found",this.props.Courses[Courses.JavaScript.value])
+      console.log("found",this.props.Courses[Courses.ES6])
     }
       
   }
   render() {
     return (
       <div>
-          <div className="PageTitle">JavaScript Interview Questions</div>
+          <div className="PageTitle">ES6Questions Interview Questions</div>
           <br/>
           <Suspense fallback={<div>Loading JavaScript Content...</div>}>
-            <LoadContent data={this.props.Courses[Courses.JavaScript.value]}/>
+            <LoadContent data={this.props.Courses[Courses.ES6.value]}/>
           </Suspense>
       </div>
     )
@@ -38,4 +37,4 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(Object.assign( {}, CourseActions), dispatch ),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(JavaScript);
+export default connect(mapStateToProps, mapDispatchToProps)(ES6Questions);

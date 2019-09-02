@@ -2,16 +2,14 @@ import React, { Suspense } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as CourseActions from '../../../redux/actions/CourseActions';
-import './React.css';
+import { Courses } from '../../../Data/CourseUtility/CourseEnum'
+import '../Courses.css';
 const LoadContent = React.lazy(() => import ('../components/LoadContent'));
 class ReactPage extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   componentDidMount() {
-    if(!this.props.Courses['React']){
+    if(!this.props.Courses[Courses.React.value]){
       console.log("notfound call api")
-      this.props.actions.getCourseData("React");
+      this.props.actions.getCourseData(Courses.React);
     } else {
       console.log("found",this.props.Courses['React'])
     }
@@ -23,7 +21,7 @@ class ReactPage extends React.Component {
           <div className="PageTitle">React Interview Questions</div>
           <br/>
           <Suspense fallback={<div>Loading React Content...</div>}>
-            <LoadContent data={this.props.Courses['React']}/>
+            <LoadContent data={this.props.Courses[Courses.React.value]}/>
           </Suspense>
       </div>
     )

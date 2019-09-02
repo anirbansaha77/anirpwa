@@ -4,10 +4,14 @@ const ContentTypes = {
     "VIDEO": "VIDEO",
     "CODE": "CODE",
     "EXTERNAL_LINK": "EXTERNAL_LINK",
+    "LIST": "LIST",
+    "RICH": "RICH",
 };
 export const Courses = {
-    "JavaScript": "JavaScript",
-    "React": "React",
+    "JavaScript": { "value": "JavaScript", "route":"/JavaScript"},
+    "React":  { "value": "React", "route":"/ReactQuestions" },
+    "ES6":  { "value": "ES6", "route":"/ES6Questions" },
+    // "ES6":  { "value": "ES6", "route":"/ES6Questions" },
 };
 
 
